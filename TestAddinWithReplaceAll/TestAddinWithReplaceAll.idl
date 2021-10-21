@@ -1,0 +1,58 @@
+// TestAddinWithReplaceAll.idl : IDL source for TestAddinWithReplaceAll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TestAddinWithReplaceAll.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(47939ABD-7189-4C17-B55B-3D73B44FB70C),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IExt : IDispatch{
+};
+[
+	object,
+	uuid(38B6566D-1DFA-4279-A282-DE50FDBC76FD),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRibbonCallback : IDispatch{
+	[id(41), helpstring("method OnLoad")] HRESULT OnLoad([in] IDispatch* spDispRibbonUI);
+	[id(42), helpstring("method ButtonClicked")] HRESULT ButtonClicked([in] IDispatch* RibbonControl);
+	[id(43), helpstring("method GetImage")] HRESULT GetImage([in] IDispatch* RibbonControl, [out, retval] IDispatch ** ppdispImage);
+	[id(44), helpstring("method GetEnabled")] HRESULT GetEnabled([in] IDispatch* RibbonControl, [out, retval] VARIANT_BOOL *pvarfEnabled);
+	[id(45), helpstring("method GetText")] HRESULT GetText([in] IDispatch* RibbonControl, [out, retval] BSTR* pVal);
+//	[id(46), helpstring("method CheckboxClicked")] HRESULT CheckboxClicked([in] IDispatch* RibbonControl, [in] VARIANT_BOOL state);
+//	[id(47), helpstring("method GetCheckboxState")] HRESULT GetCheckboxState([in] IDispatch* RibbonControl, [out, retval] VARIANT_BOOL * pvarfState);
+};
+[
+	uuid(1873E461-6CD7-4338-9D66-CE99B3FB3012),
+	version(1.0),
+]
+library TestAddinWithReplaceAllLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(C00E7DE9-854A-4BA7-A008-33A811034C88)		
+	]
+	coclass Ext
+	{
+		[default] interface IExt;
+	};
+	[
+		uuid(22437F6E-068F-4D18-92B0-39EF2EC2988A)		
+	]
+	coclass RibbonCallback
+	{
+		[default] interface IRibbonCallback;
+	};
+};
+
+import "shobjidl.idl";

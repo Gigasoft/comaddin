@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<FormRegion xmlns="http://schemas.microsoft.com/office/12/outlook/formregion.xsd">
+   <name>Test Message</name>
+   <formRegionType>replaceAll</formRegionType>
+    <formRegionName>Test Form Message</formRegionName>
+   <showInspectorRead>false</showInspectorRead>
+   <showReadingPane>false</showReadingPane>
+   <showInspectorCompose>true</showInspectorCompose>
+   <addin>TestExt</addin>
+</FormRegion>

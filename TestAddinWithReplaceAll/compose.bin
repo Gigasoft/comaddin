@@ -1,0 +1,11 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui"  onLoad="OnLoad">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabNewMailMessage">
+        <group id="preveil_group" label="Preveil" visible ="true" insertBeforeMso="GroupBasicText">
+          <button id="preveil_211" getLabel="GetText" screentip="Send email with ID" size="large" onAction="ButtonClicked" getEnabled="GetEnabled" getImage="GetImage"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

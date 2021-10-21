@@ -1,0 +1,62 @@
+HKCR
+{
+	TestExt.1 = s 'Ext Class'
+	{
+		CLSID = s '{C00E7DE9-854A-4BA7-A008-33A811034C88}'
+	}
+	TestExt = s 'Ext Class'
+	{		
+		CurVer = s 'TestExt.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C00E7DE9-854A-4BA7-A008-33A811034C88} = s 'Ext Class'
+		{
+			ProgID = s 'TestExt.1'
+			VersionIndependentProgID = s 'TestExt'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{1873E461-6CD7-4338-9D66-CE99B3FB3012}'
+			Version = s '1.0'
+		}
+	}
+}
+HKLM
+{
+    NoRemove Software
+    {
+        NoRemove Microsoft
+        {
+            NoRemove Office
+            {
+                NoRemove Outlook
+                {
+                    NoRemove Addins
+                    {
+                        ForceRemove 'TestExt'
+                        {
+                            val FriendlyName = s 'Test Add-in'
+                            val Description = s 'Test Add-in'
+                            val LoadBehavior = d '00000003'
+                            val CommandLineSafe = d '00000000'
+                       }
+                    }
+                     NoRemove FormRegions
+                    {
+						IPM.Note
+						{
+							val tstaddin = s '=TestExt'
+						}
+						IPM.Note.tstaddin
+						{
+							val tstaddin = s '=TestExt'
+						}
+                    }
+                }
+            }
+        }
+    }
+}
